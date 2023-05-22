@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}wishlist | bucket list{% endblock %}
+
+{% block ogdesc %} 
+    <meta property="og:description" content="project learning-x membuat daftar catatan" />
+{% endblock %}
+
 {% block ogimage %}
     <meta property="og:image" content="{{ url_for('static', filename='meta/wishlist.jpeg') }}" />
 {% endblock %}
