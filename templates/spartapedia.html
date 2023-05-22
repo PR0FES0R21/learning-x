@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}Spartapedia{% endblock %}
+
+{% block ogdesc %} 
+    <meta property="og:description" content="project learning-x spartapedia, membuat list film favorit" />
+{% endblock %}
+
 {% block ogimage %}
     <meta property="og:image" content="{{ url_for('static', filename='meta/spartapedia.jpg') }}" />
 {% endblock %}
