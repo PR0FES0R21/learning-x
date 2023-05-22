@@ -3,6 +3,11 @@
 {% block equiv %}<meta http-equiv="Content-Security-Police" content="upgrade-insecure-requests" >{% endblock %}
 
 {% block title %}wFunbook{% endblock %}
+
+{% block ogdesc %} 
+    <meta property="og:description" content="project learning-x funbook" />
+{% endblock %}
+
 {% block ogimage %}
     <meta property="og:image" content="{{ url_for('static', filename='meta/funbook.jpeg') }}" />
 {% endblock %}
