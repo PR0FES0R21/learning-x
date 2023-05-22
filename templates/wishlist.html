@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}wishlist | bucket list{% endblock %}
+{% block ogimage %}
+    <meta property="og:image" content="{{ url_for('static', filename='meta/wishlist.jpg') }}" />
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/wishlist.css') }}" />
+{% endblock %}
+
+{% block styleFooter %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+{% endblock %}
+
+{% block scripts %}<script src="{{ url_for('static', filename='js/wishlist.js') }}"></script>{% endblock %}
+
+{% block content %}
+<div class="mypic">
+    <h1>My Bucketlist</h1>
+  </div>
+  <div class="mybox">
+    <div class="mybucket">
+      <input id="bucket" class="form-control" type="text" placeholder="Enter your bucket list item here" />
+      <button onclick="save_bucket()" type="button" class="btn btn-outline-primary">Save</button>
+    </div>
+  </div>
+  <div class="mybox" id="bucket-list"></div>
+{% endblock %}

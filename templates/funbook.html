@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block equiv %}<meta http-equiv="Content-Security-Police" content="upgrade-insecure-requests" >{% endblock %}
+
+{% block title %}wFunbook{% endblock %}
+{% block ogimage %}
+    <meta property="og:image" content="{{ url_for('static', filename='meta/funbook.jpg') }}" />
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/funbook.css') }}" />
+{% endblock %}
+
+{% block styleFooter %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+{% endblock %}
+
+{% block scripts %}<script src="{{ url_for('static', filename='js/funbook.js') }}"></script>{% endblock %}
+
+{% block content %}
+<div class="mypic">
+    <h1>BTS FunBook</h1>
+    <p>Current Temperature: <span id="temp">36</span>degrees</p>
+  </div>
+  <div class="mypost">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="name" placeholder="url" />
+      <label for="floatingInput">Nickname</label>
+    </div>
+    <div class="form-floating">
+      <textarea class="form-control" placeholder="Leave a comment here" id="comment" style="height: 100px"></textarea>
+      <label for="floatingTextarea2">Comment</label>
+    </div>
+    <button onclick="saveComment()" type="button" class="btn btn-dark">Save</button>
+  </div>
+  <div class="mycards" id="comment-list"></div>
+    {% endblock %}
+
+    

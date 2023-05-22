@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" onclick="window.location.href='/'">Profesords</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" onclick="window.location.href='/'">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick="window.location.href='/#about'">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Project </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item{% if request.path == '/funbook' %} active{% endif %}" onclick="window.location.href='/funbook'">FunBook</a></li>
+            <li><a class="dropdown-item{% if request.path == '/mars' %} active{% endif %}" onclick="window.location.href='/mars'">Buy Martian Land</a></li>
+            <li><a class="dropdown-item{% if request.path == '/wishlist' %} active{% endif %}" onclick="window.location.href='/wishlist'">Bucket List</a></li>
+            <li><a class="dropdown-item{% if request.path == '/spartapedia' %} active{% endif %}" onclick="window.location.href='/spartapedia'">Spartapedia</a></li>
+        </ul>        
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

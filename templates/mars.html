@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Buy Martian Land{% endblock %}
+{% block ogimage %}
+    <meta property="og:image" content="{{ url_for('static', filename='meta/mars.jpg') }}" />
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mars.css') }}" />
+{% endblock %}
+
+{% block styleFooter %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+{% endblock %}
+
+{% block scripts %}<script src="{{ url_for('static', filename='js/mars.js') }}"></script>{% endblock %}
+
+{% block content %}
+<div class="mask"></div>
+    <div class="order">
+      <h1>Buy Martian Land!</h1>
+      <h3>Price: $1.00 / acre</h3>
+      <p>
+        Did you know you could buy Martian land?<br />
+        This chance won't come again!
+      </p>
+      <div class="order-info">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Name</span>
+          <input id="name" type="text" class="form-control" />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text">Address</span>
+          <input id="address" type="text" class="form-control" />
+        </div>
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="size">Acres</label>
+          <select class="form-select" id="size">
+            <option value="" selected>-- Select acreage --</option>
+            <option value="10">10 acres</option>
+            <option value="20">20 acres</option>
+            <option value="30">30 acres</option>
+            <option value="40">40 acres</option>
+            <option value="50">50 acres</option>
+          </select>
+        </div>
+        <button onclick="save_order()" type="button" class="btn btn-warning mybtn">Create order</button>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Acres</th>
+          </tr>
+        </thead>
+        <tbody id="orders_box"></tbody>
+      </table>
+    </div>
+{% endblock %}

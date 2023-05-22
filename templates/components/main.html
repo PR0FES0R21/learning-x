@@ -1,0 +1,34 @@
+<main>
+  <div class="mytitle">
+    <h1>My Favorite Movies</h1>
+    <button onclick="open_box()">Save movie</button>
+  </div>
+  <div class="mypost" id="post-box">
+    <div class="form-floating mb-3">
+      <input id="url" type="email" class="form-control" placeholder="name@example.com" />
+      <label>Movie URL</label>
+    </div>
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="inputGroupSelect01">Rating</label>
+      <select class="form-select" id="star">
+        <option value="null" selected>-- Select a rating--</option>
+        <option value="1">⭐</option>
+        <option value="2">⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+        <option value="4">⭐⭐⭐⭐</option>
+        <option value="5">⭐⭐⭐⭐⭐</option>
+      </select>
+    </div>
+    <div class="form-floating">
+      <textarea id="comment" class="form-control" placeholder="Leave a comment here"></textarea>
+      <label for="floatingTextarea2">Comment</label>
+    </div>
+    <div class="mybtns">
+      <button onclick="posting()" type="button" class="btn btn-dark">Save</button>
+      <button onclick="close_box()" type="button" class="btn btn-outline-dark">Close</button>
+    </div>
+  </div>
+  <div class="mycards">
+    <div class="row row-cols-1 row-cols-md-4 g-4" id="cards-box"></div>
+  </div>
+</main>
