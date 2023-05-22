@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}Buy Martian Land{% endblock %}
+
+{% block ogdesc %} 
+    <meta property="og:description" content="project learning-x membeli tanah di mars" />
+{% endblock %}
+
 {% block ogimage %}
     <meta property="og:image" content="{{ url_for('static', filename='meta/mars.jpg') }}" />
 {% endblock %}
