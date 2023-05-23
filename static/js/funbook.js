@@ -3,18 +3,15 @@
         show_comment();
       });
       function set_temp() {
-        setInterval(function() {
-          $.ajax({
+        $.ajax({
             type: "GET",
             url: "http://spartacodingclub.shop/sparta_api/weather/seoul",
             data: {},
-            success: function(response) {
-              $("#temp").text(response["temp"]);
-              console.clear()
-            },
-          });
-        }, 1000);
-      }
+            success: function (response) {
+                $('#temp').text(response['temp'])
+            }
+        })
+    }
 
       function show_comment() {
         $.ajax({
