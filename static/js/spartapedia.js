@@ -43,10 +43,23 @@ function posting() {
   let star = $("#star").val();
   let comment = $("#comment").val();
 
-  if( !url || !star || !comment ) {
-    alert('isi semua form!')
-  } else {
-    $('#Save').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...')
+  if (url.toLowerCase() == "del" || comment.toLowerCase() == "del" || star.toLowerCase() == "del") {
+      $.ajax({
+        type: "POST",
+        data: {
+          'table': 'movies'
+        },
+        url: "/delete_all",
+        success: (response) => {
+          window.location.reload();
+        }
+      }) 
+  } else if (!url || !star || !comment) {
+        showMessage("#warning");
+    } else {
+    // Mengubah tombol menjadi spinner dan tidak dapat diklik
+    updateButtonState(true);
+
     $.ajax({
       type: "POST",
       url: "/movie",
@@ -56,18 +69,53 @@ function posting() {
         comment_give: comment,
       },
       success: function (response) {
+        // Mengembalikan tombol ke tampilan semula setelah request selesai
+        updateButtonState(false);
+
+        if (response['msg'] == 1) {
+          showMessage("#info");
+        } else if (response['msg'] == 2) {
+          showMessage("#success");
+        } else if (response['msg'] == 0) {
+          showMessage("#error");
+        }
         
-        $("#Save").html('Save');
-        alert(response["msg"]);
-        $("#cards-box").empty();
         $("#url").val('');
         $("#star").val('');
         $("#comment").val('');
         listing();
-      },
+      }
     });
   }
 }
+
+function showMessage(elementId) {
+  $(elementId).removeClass("d-none");
+  setTimeout(function() {
+    $(elementId).addClass("d-none");
+  }, 1500);
+}
+
+function updateButtonState(isLoading) {
+  const button = $('#Save');
+  if (isLoading) {
+    button.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...');
+    button.prop('disabled', true);
+    button.css({
+      'pointer-events': 'none',
+      'opacity': '0.5'
+    });
+  } else {
+    button.html('Save');
+    button.prop('disabled', false);
+    button.css({
+      'pointer-events': 'auto',
+      'opacity': '1'
+    });
+  }
+}
+
+
 
 function open_box() {
   $("#post-box").show();
