@@ -1,11 +1,6 @@
 {% extends 'base.html' %}
 
 {% block title %}Spartapedia{% endblock %}
-
-{% block ogdesc %} 
-    <meta property="og:description" content="project learning-x spartapedia, membuat list film favorit" />
-{% endblock %}
-
 {% block ogimage %}
     <meta property="og:image" content="{{ url_for('static', filename='meta/spartapedia.jpg') }}" />
 {% endblock %}
@@ -26,24 +21,28 @@
   <button onclick="open_box()">Save movie</button>
 </div>
 
-<div id="alert">
-  <div id="error" class="alert alert-alert alert-dismissible fade show d-none" role="alert">
-    <strong>Error:</strong> Url harus dari IMDB
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-
-<div id="success" class="alert alert-success alert-dismissible fade d-none" role="alert">
-  Data berhasil di tembahkan
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-
-<div id="warning" class="alert alert-alert alert-dismissible fade show d-none" role="alert">
-  <strong>Warning:</strong> Url tidak valid.
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-</div>
-
 <div class="mypost" id="post-box">
+  
+    <div id="success" class="alert alert-success alert-dismissible fade show d-none" role="alert">
+      <strong>Sukses!</strong> Data berhasil ditambahkan.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  
+    <div id="error" class="alert alert-danger alert-dismissible fade show d-none" role="alert">
+      <strong>Error!</strong> URL tidak valid.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div id="warning" class="alert alert-warning alert-dismissible fade show d-none" role="alert">
+      <strong>Alert!</strong> silahkan isi semua form.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  
+    <div id="info" class="alert alert-info alert-dismissible fade show d-none" role="alert">
+      <strong>Info!</strong> URL harus dari imdb.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  
   <div class="form-floating mb-3">
     <input id="url" type="email" class="form-control" placeholder="name@example.com" />
     <label>Movie URL</label>
@@ -51,7 +50,7 @@
   <div class="input-group mb-3">
     <label class="input-group-text" for="inputGroupSelect01">Rating</label>
     <select class="form-select" id="star">
-      <option value='' selected>-- Select a rating--</option>
+      <option value="" selected>-- Select a rating--</option>
       <option value="1">⭐</option>
       <option value="2">⭐⭐</option>
       <option value="3">⭐⭐⭐</option>
